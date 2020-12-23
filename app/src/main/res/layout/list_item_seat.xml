@@ -21,9 +21,16 @@
         android:layout_height="40dp"
         android:src="@drawable/seat_normal_selected"
         android:layout_centerHorizontal="true"
-        android:visibility="invisible">
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/txtCounter"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+
+        android:textSize="30dp"
+        android:layout_below="@id/img_seat_selected"/>
 
 
-
-    </ImageView>
 </RelativeLayout>

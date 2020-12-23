@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,21 +15,27 @@ public class AirplaneAdapter extends SelectableAdapter<RecyclerView.ViewHolder>{
     private OnSeatSelected mOnSeatSelected;
 
     private static class EdgeViewHolder extends RecyclerView.ViewHolder {
+        TextView txtCount;
 
         ImageView imgSeat;
         private final ImageView imgSeatSelected;
 
 
+
         public EdgeViewHolder(View itemView) {
             super(itemView);
-            imgSeat = (ImageView) itemView.findViewById(R.id.img_seat);
-            imgSeatSelected = (ImageView) itemView.findViewById(R.id.img_seat_selected);
+
+            imgSeat = itemView.findViewById(R.id.img_seat);
+            imgSeatSelected = itemView.findViewById(R.id.img_seat_selected);
+            txtCount = itemView.findViewById(R.id.txtCounter);
+
 
         }
 
     }
 
     private static class CenterViewHolder extends RecyclerView.ViewHolder {
+        TextView txtCount;
 
         ImageView imgSeat;
         private final ImageView imgSeatSelected;
@@ -37,6 +44,7 @@ public class AirplaneAdapter extends SelectableAdapter<RecyclerView.ViewHolder>{
             super(itemView);
             imgSeat = (ImageView) itemView.findViewById(R.id.img_seat);
             imgSeatSelected = (ImageView) itemView.findViewById(R.id.img_seat_selected);
+            txtCount = itemView.findViewById(R.id.txtCounter);
 
 
         }
@@ -109,6 +117,7 @@ public class AirplaneAdapter extends SelectableAdapter<RecyclerView.ViewHolder>{
             });
 
             holder.imgSeatSelected.setVisibility(isSelected(position) ? View.VISIBLE : View.INVISIBLE);
+            holder.txtCount.setText(mItems.get(position).getLabel());
 
         } else if (type == AbstractItem.TYPE_EDGE) {
             final EdgeItem item = (EdgeItem) mItems.get(position);
@@ -128,6 +137,7 @@ public class AirplaneAdapter extends SelectableAdapter<RecyclerView.ViewHolder>{
             });
 
             holder.imgSeatSelected.setVisibility(isSelected(position) ? View.VISIBLE : View.INVISIBLE);
+            holder.txtCount.setText(mItems.get(position).getLabel());
 
         }
     }
